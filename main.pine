@@ -33,67 +33,6 @@ import jdehorty/KernelFunctions/2 as kernels
 // (3) The most recent RSI and ADX value can be considered the origin of a coordinate 
 //     system with ADX on the x-axis and RSI on the y-axis.
 
-// Distances in Euclidean Space:
-// Measuring the Euclidean Distances of historical values with the most recent point
-// at the origin will yield a distribution that resembles Figure 1 (below).
-
-//                        [RSI]
-//                          |                      
-//                          |                   
-//                          |                 
-//                      ...:::....              
-//                .:.:::••••••:::•::..             
-//              .:•:.:•••::::••::••....::.            
-//             ....:••••:••••••••::••:...:•.          
-//            ...:.::::::•••:::•••:•••::.:•..          
-//            ::•:.:•:•••••••:.:•::::::...:..         
-//  |--------.:•••..•••••••:••:...:::•:•:..:..----------[ADX]    
-//  0        :•:....:•••••::.:::•••::••:.....            
-//           ::....:.:••••••••:•••::••::..:.          
-//            .:...:••:::••••••••::•••....:          
-//              ::....:.....:•::•••:::::..             
-//                ..:..::••..::::..:•:..              
-//                    .::..:::.....:                
-//                          |            
-//                          |                   
-//                          |
-//                          |
-//                         _|_ 0        
-//                          
-//        Figure 1: Neighborhood in Euclidean Space
-
-// Distances in Lorentzian Space:
-// However, the same set of historical values measured using Lorentzian Distance will 
-// yield a different distribution that resembles Figure 2 (below).
-
-//                         
-//                         [RSI] 
-//  ::..                     |                    ..:::  
-//   .....                   |                  ......
-//    .••••::.               |               :••••••. 
-//     .:•••••:.             |            :::••••••.  
-//       .•••••:...          |         .::.••••••.    
-//         .::•••••::..      |       :..••••••..      
-//            .:•••••••::.........::••••••:..         
-//              ..::::••••.•••••••.•••••••:.            
-//                ...:•••••••.•••••••••::.              
-//                  .:..••.••••••.••••..                
-//  |---------------.:•••••••••••••••••.---------------[ADX]          
-//  0             .:•:•••.••••••.•••••••.                
-//              .••••••••••••••••••••••••:.            
-//            .:••••••••••::..::.::••••••••:.          
-//          .::••••••::.     |       .::•••:::.       
-//         .:••••••..        |          :••••••••.     
-//       .:••••:...          |           ..•••••••:.   
-//     ..:••::..             |              :.•••••••.   
-//    .:•....                |               ...::.:••.  
-//   ...:..                  |                   :...:••.     
-//  :::.                     |                       ..::  
-//                          _|_ 0
-//
-//       Figure 2: Neighborhood in Lorentzian Space 
-
-
 // Observations:
 // (1) In Lorentzian Space, the shortest distance between two points is not 
 //     necessarily a straight line, but rather, a geodesic curve.
@@ -421,8 +360,6 @@ isNewBuySignal = isBuySignal and isDifferentSignalType
 isNewSellSignal = isSellSignal and isDifferentSignalType
 
 // Kernel Regression Filters: Filters based on Nadaraya-Watson Kernel Regression using the Rational Quadratic Kernel
-// For more information on this technique refer to my other open source indicator located here: 
-// https://www.tradingview.com/script/AWNvbPRM-Nadaraya-Watson-Rational-Quadratic-Kernel-Non-Repainting/
 c_green = color.new(#009988, 20)
 c_red = color.new(#CC3311, 20)
 transparent = color.new(#000000, 100)
